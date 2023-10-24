@@ -1,0 +1,83 @@
+---
+title: "Título"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: rows
+    source_code: embed
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+```
+
+Sidebar {.sidebar}
+=======================================================================
+
+### Otro ejemplo
+
+Texto...
+Texto...
+Texto...
+Texto...
+
+
+Pestaña 1
+=======================================================================
+
+Row
+-----------------------------------------------------------------------
+
+### Ejemplo 1 {.value-box}
+
+```{r}
+valueBox(1, caption = "Ejemplo 1", icon = "fa-github")
+```
+
+### Ejemplo 2 {.value-box}
+
+```{r}
+valueBox(2, caption = "Ejemplo 2", color = "info", icon = "fa-twitter")
+```
+
+### Ejemplo 3 {.value-box}
+
+```{r}
+valueBox(3, caption = "Ejemplo 3", color = "success", icon = "glyphicon-time")
+```
+
+Row
+-----------------------------------------------------------------------
+
+### Tabla interactiva {data-width=700}
+
+```{r}
+library(DT)
+datatable(iris, rownames = FALSE)
+
+```
+
+### Gráfico interactivo (last 5 min) {data-width=340}
+
+```{r}
+library(tidyverse)
+library(plotly)
+ggplotly(
+  iris %>% 
+  ggplot(aes(x = Species, y = Sepal.Length)) +
+  geom_boxplot()
+)
+
+```
+
+Pestaña 2
+=======================================================================
+
+### Otro gráfico
+
+```{r}
+ggplotly(
+  iris %>% 
+  ggplot(aes(x = Species, y = Sepal.Length)) +
+  geom_boxplot()
+)
+```

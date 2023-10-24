@@ -1,0 +1,47 @@
+---
+title: "Título"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+```
+
+Column {data-width=650}
+-----------------------------------------------------------------------
+
+### Gráfico 1
+
+```{r}
+library(tidyverse)
+library(plotly)
+ggplotly(
+  iris %>% 
+  ggplot(aes(x = Species, y = Sepal.Length)) +
+  geom_boxplot()
+)
+```
+
+Column {data-width=350}
+-----------------------------------------------------------------------
+
+### Tabla interactiva
+
+```{r}
+library(DT)
+datatable(iris, rownames = FALSE)
+```
+
+### Gráfico 2
+
+```{r}
+ggplotly(
+  iris %>% 
+  ggplot(aes(x = Species, y = Sepal.Length)) +
+  geom_boxplot()
+)
+```
+

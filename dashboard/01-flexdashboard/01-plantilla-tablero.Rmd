@@ -1,0 +1,114 @@
+---
+title: "Título"
+output: 
+  flexdashboard::flex_dashboard:
+    theme: 
+      bg: "#ffffff"
+      fg: "#000000" 
+      primary: "#6d96df"
+      base_font: !expr bslib::font_google("Prompt")
+      code_font: !expr bslib::font_google("JetBrains Mono")
+    orientation: rows
+    source_code: embed
+---
+
+
+```{r, include=FALSE}
+library(flexdashboard)
+library(ggplot2)
+thematic::thematic_rmd(
+  font = "auto",
+  sequential = thematic::sequential_gradient(fg_low = FALSE, fg_weight = 0, bg_weight = 1)
+)
+```
+
+Pestaña 1
+===================================== 
+
+{data-width=200}
+-------------------------------------
+
+### Value box 1
+
+```{r}
+valueBox(1, caption = "Ejemplo 1", icon = "fa fa-bar-chart")
+```
+
+### Value box 2
+
+```{r}
+valueBox(2, caption = "Ejemplo 2", color = "info", icon = "fa-twitter")
+```
+
+### Value box 3
+
+```{r}
+valueBox(3, caption = "Ejemplo 3", color = "success", icon = "glyphicon-time")
+```
+
+### Value box 4
+
+```{r}
+valueBox(4, caption = "Ejemplo 4", color = "warning", icon = "fa-facebook")
+```
+
+### Value box 5
+
+```{r}
+valueBox(5, caption = "Ejemplo 5", color = "danger", icon = "fa-facebook")
+```
+
+
+{.tabset}
+-------------------------------------
+
+### Tabla
+    
+```{r}
+library(DT)
+datatable(iris, rownames = FALSE)
+```
+
+### Gráfico Interactivo
+    
+```{r}
+library(tidyverse)
+library(plotly)
+ggplotly(
+  iris %>% 
+  ggplot(aes(x = Species, y = Sepal.Length)) +
+  geom_boxplot()
+)
+```
+
+
+Pestaña 2
+=========================================
+
+Column 
+-------------------------------------
+    
+### Ejemplo 1
+    
+```{r}
+ggplotly(
+  iris %>% 
+  ggplot(aes(x = Species, y = Sepal.Length)) +
+  geom_boxplot()
+)
+```
+   
+Column {.tabset}
+-------------------------------------
+   
+### Ejemplo 2
+
+```{r}
+datatable(iris, rownames = FALSE)
+```   
+ 
+### Ejemplo 3
+    
+```{r}
+datatable(mtcars, rownames = FALSE)
+```

@@ -1,0 +1,48 @@
+---
+title: "Título"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: rows
+    vertical_layout: scroll
+    theme:
+      bg: "#101010"
+      fg: "#FDF7F7" 
+      primary: "#36b09b"
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+# Install thematic and un-comment for themed static plots (i.e., ggplot2)
+thematic::thematic_rmd()
+```
+
+Row 
+-------------------------------------
+    
+### Gráfico interactivo
+    
+```{r}
+library(tidyverse)
+library(plotly)
+ggplotly(
+  iris %>% 
+  ggplot(aes(x = Species, y = Sepal.Length)) +
+  geom_boxplot()
+)
+```
+   
+Row {.tabset .tabset-fade}
+-------------------------------------
+   
+### Tabla interactiva 1
+
+```{r}
+library(DT)
+datatable(mtcars, rownames = FALSE)
+```   
+ 
+### Tabla interactiva 2
+    
+```{r}
+datatable(iris, rownames = FALSE)
+```

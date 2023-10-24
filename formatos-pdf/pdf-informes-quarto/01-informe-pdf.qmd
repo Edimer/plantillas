@@ -1,0 +1,47 @@
+---
+title: "Título"
+subtitle: "Subtítulo"
+date: "`r Sys.Date()`"
+author:
+  - name: Edimer David Jaramillo
+    email: edimer.davidj@udea.edu.co
+    affiliations:
+      - name: Universidad de Antioquia
+        address: Medellín, Colombia
+  - name: Autor dos
+    affiliations:
+      - name: Universidad de Antioquia
+        address: Medellín, Colombia
+  - name: Autor tres
+    affiliations:
+      - name: Universidad Nacional de Colombia
+        department: Facultad X
+        address: Medellín, Colombia
+  - name: Autor cuatro
+    affiliations:
+      - name: Universidad Nacional de Colombia
+        department: Facultad Y
+        address: Bogotá, Colombia
+format: 
+  titlepage-pdf:
+    documentclass: scrbook
+    classoption: ["oneside", "open=any"]
+    number-sections: true
+    toc: true
+    lof: false
+    lot: false
+    titlepage: "bg-image"
+    titlepage-bg-image: "img/logo1.png"
+    titlepage-logo: "img/logo2.png"
+    titlepage-footer: |
+      Edimer David Jaramillo\
+      Sidereus\
+      [Mi página web](https://edimer.github.io/)\
+    keep-tex: true
+lang: es
+colorlinks: true
+---
+
+# Hola
+
+## Hola 2

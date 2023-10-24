@@ -1,0 +1,57 @@
+---
+title: "Recursos de información"
+subtitle: ""
+author: ""
+lang: es 
+execute: 
+  eval: true
+  echo: true
+  warning: false
+format:
+  html:
+    page-layout: article
+    fig-width: 6
+    fig-height: 4.5
+    toc: true
+    toc-title: "Tabla de contenido"
+    smooth-scroll: true
+    code-fold: true
+    df-print: paged
+    toc-location: left
+    number-depth: 4
+    theme: yeti
+    code-copy: true
+    highlight-style: github
+    css: estilo.css
+    code-tools:
+      source: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(fig.align = "center", warning = FALSE, message = FALSE)
+```
+
+# Tabla
+
+```{r}
+iris
+```
+
+# Gráficos
+
+## Gráfico 1
+
+```{r}
+plot(iris)
+```
+
+## Gráfico 2
+
+```{r}
+library(tidyverse)
+iris %>% 
+  ggplot(aes(x = Sepal.Length)) +
+  geom_density()
+```
+
+

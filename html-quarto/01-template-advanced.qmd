@@ -1,0 +1,140 @@
+---
+title: "Recursos de información"
+subtitle: ""
+author: ""
+lang: es 
+execute: 
+  eval: true
+  echo: true
+  warning: false
+format:
+  html:
+    toc: true
+    toc-location: right
+    toc-title: "Tabla de contenido"
+    code-copy: true
+    highlight-style: github
+    code-fold: true
+    grid:
+      margin-width: 350px
+reference-location: margin
+citation-location: margin
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(fig.align = "center", warning = FALSE, message = FALSE)
+```
+
+# Gráficos
+
+```{r}
+#| label: fig-margin
+#| fig-cap: "MPG vs horsepower, colored by transmission."
+#| column: margin
+#| message: false
+library(ggplot2)
+mtcars2 <- mtcars
+mtcars2$am <- factor(
+  mtcars$am, labels = c('automatic', 'manual')
+)
+ggplot(mtcars2, aes(hp, mpg, color = am)) +
+  geom_point() + geom_smooth() +
+  theme(legend.position = 'bottom')
+```
+
+# Márgenes
+
+```{r}
+#| label: fig-fullwidth
+#| fig-cap: "A full width figure."
+#| fig-width: 11
+#| fig-height: 3
+#| fig-column: page-right
+#| warning: false
+ggplot(diamonds, aes(carat, price)) + geom_smooth() +
+  facet_grid(~ cut)
+```
+
+# Ancho completo
+
+::: {.fullwidth}
+Any _full width_ content here.
+:::
+
+# Otro gráfico
+
+```{r}
+#| label: fig-main
+#| fig-cap: "A figure in the main column."
+ggplot(diamonds, aes(cut, price)) + geom_boxplot()
+```
+
+# Márgenes
+
+```{r}
+#| label: fig-main-margin-cap
+#| fig-cap: "A figure with a longer caption. The figure appears in the main column, but the caption is placed in the margin. Captions can even contain elements like a citation such as @xie2018."
+#| cap-location: margin
+ggplot(diamonds, aes(cut, price)) + geom_boxplot()
+```
+
+# Tablas
+
+```{r}
+#| tbl-cap-location: margin
+knitr::kable(
+  mtcars[1:6, 1:6], caption = 'A subset of mtcars.'
+)
+```
+
+# Más...
+
+```{r}
+#| label: fig-two-together
+#| fig-cap: "Two plots in one figure environment."
+#| fig-show: hold
+#| warning: false
+#| cap-location: margin
+p <- ggplot(mtcars2, aes(hp, mpg, color = am)) +
+  geom_point()
+p
+p + geom_smooth()
+```
+
+# Más ejemplos 
+
+```{r fig-two-separate, ref.label='fig-two-together', fig.cap=sprintf("Two plots in separate figure environments (the %s plot).", c("first", "second")), message=FALSE}
+#| cap-location: margin
+p <- ggplot(mtcars2, aes(hp, mpg, color = am)) +
+  geom_point()
+p
+p + geom_smooth()
+```
+
+# Otro
+
+```{r}
+#| fig-width: 3.5
+#| fig-height: 2
+#| column: margin
+# a boxplot of weight vs transmission; this figure
+# will be placed in the margin
+ggplot(mtcars2, aes(am, wt)) + geom_boxplot() +
+  coord_flip()
+```
+
+```{r}
+#| warning: false
+# a figure in the main column
+p <- ggplot(mtcars, aes(wt, hp)) + geom_point()
+p
+```
+
+```{r}
+#| fig-width: 11
+#| fig-height: 4
+#| column: page-right
+#| warning: false
+# a fullwidth figure
+p + geom_smooth(method = 'lm') + facet_grid(~ gear)
+```
