@@ -5,6 +5,7 @@
 - [Capítulo 7 - Presentaciones xaringan](https://bookdown.org/yihui/rmarkdown/xaringan.html).
 - [Blog post xaringan](https://yihui.org/en/2017/10/xaringan-themes/).
 - [Galería Quarto.org](https://quarto.org/docs/gallery/)
+- [Beamer theme and color gallery](https://deic.uab.cat/~iblanes/beamer_gallery/index_by_theme_and_color.html)
 
 <img src="https://user-images.githubusercontent.com/163582/45438104-ea200600-b67b-11e8-80fa-d9f2a99a03b0.png" width="33%" align="left" /><img src="https://bookdown.org/yihui/rmarkdown/images/hex-rmarkdown.png" width="33%" align="left" />     
 
@@ -12,6 +13,4 @@
 
 Para visualizar las presentaciones en *HTML* sin necesidad de descargar los archivos, es posible utilizar [GitHub & BitBucket HTML Preview.](https://htmlpreview.github.io/)
 
-# Lista de temas Beamer PDF
 
-- [Beamer theme and color gallery](https://deic.uab.cat/~iblanes/beamer_gallery/index_by_theme_and_color.html)
