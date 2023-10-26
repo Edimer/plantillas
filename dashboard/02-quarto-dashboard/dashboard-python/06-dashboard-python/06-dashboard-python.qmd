@@ -1,0 +1,79 @@
+---
+title: "Título"
+author: "Autor"
+format: dashboard
+logo: logo.png
+theme: superhero
+---
+
+# Página 1 {orientation="rows"}
+
+## Fila 1 {height=70%}
+
+```{python}
+#| title: "World Map"
+#| padding: 0px
+from ipyleaflet import Map, basemaps, basemap_to_tiles
+Map(basemap=basemap_to_tiles(basemaps.OpenStreetMap.Mapnik),
+    center=(48.204793, 350.121558), zoom=2)
+```
+
+## Fila 2 {height=30%}
+
+```{python}
+#| title: Tabla estática
+from tabulate import tabulate
+import pandas as pd
+from IPython.display import Markdown
+iris = pd.read_csv("ejemplo.csv")
+Markdown(
+  tabulate(iris.head(), showindex=False, 
+           headers=iris.columns)
+)
+```
+
+
+# Página 2 {orientation="columns"}
+
+## Columna 1 {.tabset}
+
+```{python}
+#| title: Tabla estática
+from tabulate import tabulate
+import pandas as pd
+from IPython.display import Markdown
+iris = pd.read_csv("ejemplo.csv")
+Markdown(
+  tabulate(iris.head(), showindex=False, 
+           headers=iris.columns)
+)
+```
+
+```{python}
+import plotly.express as px
+import matplotlib.pyplot as plt
+
+#| title: "Tipping Behavior"
+#| layout-ncol: 2
+px.box(iris, x="Species", y="Sepal.Length", color="Species")
+px.violin(iris, x="Species", y="Sepal.Length", color="Species")
+plt.show()
+```
+
+## Columna 2
+
+```{python}
+#| title: Tabla interactiva
+from itables import show
+show(iris)
+```
+
+# Cards
+
+::: {.card title="Mi avatar"}
+![](logo.png){width=350}
+
+Zootecnista y especialista en Estadística, con capacidad de utilizar métodos estadísticos en favor de resolver problemas específicos en múltiples áreas del conocimiento.
+Experiencia en docencia universitaria, formulación de proyectos de investigación y consultoría estadística, ejerciendo funciones de análisis de datos a través de lenguajes de programación como *R* y *Python*. Participante en competencias de *Data Science* a través de plataformas como [Kaggle](https://www.kaggle.com/), [Zindi (África)](https://zindi.africa/) y [DataSource (Latinoamérica)](https://www.datasource.ai/). 
+
+:::

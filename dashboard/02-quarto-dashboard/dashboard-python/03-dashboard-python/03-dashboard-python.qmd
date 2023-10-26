@@ -1,0 +1,37 @@
+---
+title: "Título"
+author: "Autor"
+format:
+   dashboard:
+     scrolling: true
+logo: logo.png
+theme: lux
+---
+
+
+```{python}
+#| title: "World Map"
+#| padding: 0px
+from ipyleaflet import Map, basemaps, basemap_to_tiles
+Map(basemap=basemap_to_tiles(basemaps.OpenStreetMap.Mapnik),
+    center=(48.204793, 350.121558), zoom=2)
+```
+
+
+```{python}
+#| title: Tabla estática
+from tabulate import tabulate
+import pandas as pd
+from IPython.display import Markdown
+iris = pd.read_csv("ejemplo.csv")
+Markdown(
+  tabulate(iris.head(), showindex=False, 
+           headers=iris.columns)
+)
+```
+
+```{python}
+#| title: Tabla interactiva
+from itables import show
+show(iris)
+```

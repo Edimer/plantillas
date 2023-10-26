@@ -1,0 +1,185 @@
+---
+title: "Título"
+author: "Autor"
+format: dashboard
+logo: logo.png
+theme: yeti
+---
+
+# {.sidebar}
+
+![](logo.png){width=350}
+
+Zootecnista y especialista en Estadística, con capacidad de utilizar métodos estadísticos en favor de resolver problemas específicos en múltiples áreas del conocimiento.
+Experiencia en docencia universitaria, formulación de proyectos de investigación y consultoría estadística, ejerciendo funciones de análisis de datos a través de lenguajes de programación como *R* y *Python*. Participante en competencias de *Data Science* a través de plataformas como [Kaggle](https://www.kaggle.com/), [Zindi (África)](https://zindi.africa/) y [DataSource (Latinoamérica)](https://www.datasource.ai/). 
+
+# Página 1 {orientation="rows"}
+
+## Fila 1 {height=55%}
+
+```{python}
+#| title: "World Map"
+#| padding: 0px
+from ipyleaflet import Map, basemaps, basemap_to_tiles
+Map(basemap=basemap_to_tiles(basemaps.OpenStreetMap.Mapnik),
+    center=(48.204793, 350.121558), zoom=2)
+```
+
+Se puede agregar texto como un componente adicional del tablero...Simplemente se debe agregar el texto como este 😄🐶📊
+
+Zootecnista y especialista en Estadística, con capacidad de utilizar métodos estadísticos en favor de resolver problemas específicos en múltiples áreas del conocimiento.
+Experiencia en docencia universitaria, formulación de proyectos de investigación y consultoría estadística, ejerciendo funciones de análisis de datos a través de lenguajes de programación como *R* y *Python*. Participante en competencias de *Data Science* a través de plataformas como [Kaggle](https://www.kaggle.com/), [Zindi (África)](https://zindi.africa/) y [DataSource (Latinoamérica)](https://www.datasource.ai/). 
+
+## Fila 2 {height=45%}
+
+```{python}
+#| title: Tabla estática
+from tabulate import tabulate
+import pandas as pd
+from IPython.display import Markdown
+iris = pd.read_csv("ejemplo.csv")
+Markdown(
+  tabulate(iris.head(), showindex=False, 
+           headers=iris.columns)
+)
+```
+
+
+# Página 2 {orientation="columns"}
+
+## Columna 1 {.tabset width=60%}
+
+```{python}
+#| title: Tabla interactiva
+from itables import show
+show(iris)
+```
+
+```{python}
+#| title: Gráfico estático con seaborn
+
+import matplotlib.pyplot as plt
+plt.rcParams['figure.figsize'] = (12, 6) #controla el tamaño del gráfico
+import numpy as np
+
+import seaborn as sns
+sns.set_theme(style="darkgrid")
+
+# Load an example dataset with long-form data
+fmri = sns.load_dataset("fmri")
+
+# Plot the responses for different events and regions
+sns.lineplot(x="timepoint", y="signal",
+             hue="region", style="event",
+             data=fmri)
+```
+
+## Columna 2 {width=40%}
+
+```{python}
+import plotly.express as px
+
+#| title: "Tipping Behavior"
+#| layout-ncol: 2
+px.box(iris, x="Species", y="Sepal.Length", color="Species")
+px.violin(iris, x="Species", y="Sepal.Length", color="Species")
+plt.show()
+```
+
+# Cards
+
+::: {.card title="Mi avatar"}
+![](logo.png){width=350}
+
+Zootecnista y especialista en Estadística, con capacidad de utilizar métodos estadísticos en favor de resolver problemas específicos en múltiples áreas del conocimiento.
+Experiencia en docencia universitaria, formulación de proyectos de investigación y consultoría estadística, ejerciendo funciones de análisis de datos a través de lenguajes de programación como *R* y *Python*. Participante en competencias de *Data Science* a través de plataformas como [Kaggle](https://www.kaggle.com/), [Zindi (África)](https://zindi.africa/) y [DataSource (Latinoamérica)](https://www.datasource.ai/). 
+
+:::
+
+# Value Boxes {orientation="rows"}
+
+## Fila 1
+
+```{python}
+#| component: valuebox
+#| title: "Articles per day"
+#| icon: pencil
+#| color: primary
+200
+```
+
+```{python}
+#| component: valuebox
+#| title: "Spam per day"
+dict(
+  icon = "trash",
+  color = "secondary",
+  value = 500
+)
+```
+
+```{python}
+#| component: valuebox
+#| title: "Spam per day"
+dict(
+  icon = "trash",
+  color = "success",
+  value = 300
+)
+```
+
+## Fila 2 {height=50%}
+
+```{python}
+#| component: valuebox
+#| title: "Articles per day"
+#| icon: pencil
+#| color: info
+200
+```
+
+```{python}
+#| component: valuebox
+#| title: "Spam per day"
+dict(
+  icon = "trash",
+  color = "warning",
+  value = 500
+)
+```
+
+```{python}
+#| component: valuebox
+#| title: "Spam per day"
+dict(
+  icon = "trash",
+  color = "danger",
+  value = 300
+)
+```
+
+## Fila 3
+
+```{python}
+#| component: valuebox
+#| title: "Articles per day"
+#| icon: pencil
+#| color: light
+200
+```
+
+```{python}
+#| component: valuebox
+#| title: "Spam per day"
+dict(
+  icon = "trash",
+  color = "dark",
+  value = 500
+)
+```
+
+::: {.valuebox icon="pencil" color="green"}
+Color personalizado
+
+`{python} 200`
+:::

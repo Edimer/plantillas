@@ -1,0 +1,73 @@
+---
+title: "Título"
+author: "Autor"
+format: dashboard
+logo: logo.png
+theme: litera
+---
+
+# {.sidebar}
+
+```{r}
+library(tidyverse)
+library(plotly)
+ggplotly(
+  iris %>% 
+    ggplot(aes(x = Sepal.Length)) +
+    geom_histogram(color = "black")
+)
+```
+
+![](logo.png){width=350}
+
+Zootecnista y especialista en Estadística, con capacidad de utilizar métodos estadísticos en favor de resolver problemas específicos en múltiples áreas del conocimiento.
+Experiencia en docencia universitaria, formulación de proyectos de investigación y consultoría estadística, ejerciendo funciones de análisis de datos a través de lenguajes de programación como *R* y *Python*. Participante en competencias de *Data Science* a través de plataformas como [Kaggle](https://www.kaggle.com/), [Zindi (África)](https://zindi.africa/) y [DataSource (Latinoamérica)](https://www.datasource.ai/). 
+
+# Página 1 {orientation="rows"}
+
+## Fila 1 {height=55%}
+
+```{r}
+#| title: Prueba
+plot(iris)
+```
+
+## Fila 2 {height=45%}
+
+```{r}
+#| title: Tabla gt
+gt::gt(iris)
+```
+
+
+# Página 2 {orientation="columns"}
+
+## Columna 1 {.tabset width=60%}
+
+```{r}
+#| title: Botón 1
+library(DT)
+datatable(iris, rownames = FALSE)
+```
+
+```{r}
+#| title: Botón 2
+plot(mtcars)
+```
+
+## Columna 2 {width=40%}
+
+```{r}
+#| title: Título
+plot(Titanic)
+```
+
+# Cards
+
+::: {.card title="Mi avatar"}
+![](logo.png){width=350}
+
+Zootecnista y especialista en Estadística, con capacidad de utilizar métodos estadísticos en favor de resolver problemas específicos en múltiples áreas del conocimiento.
+Experiencia en docencia universitaria, formulación de proyectos de investigación y consultoría estadística, ejerciendo funciones de análisis de datos a través de lenguajes de programación como *R* y *Python*. Participante en competencias de *Data Science* a través de plataformas como [Kaggle](https://www.kaggle.com/), [Zindi (África)](https://zindi.africa/) y [DataSource (Latinoamérica)](https://www.datasource.ai/). 
+
+:::

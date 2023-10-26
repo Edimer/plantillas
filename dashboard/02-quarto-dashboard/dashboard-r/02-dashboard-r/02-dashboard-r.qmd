@@ -1,0 +1,29 @@
+---
+title: "Título"
+author: "Autor"
+format:
+   dashboard:
+     orientation: columns
+logo: logo.png
+theme: materia
+---
+
+## Column {width=60%}
+
+```{r}
+#| title: Prueba
+plot(iris)
+```
+
+## Column {width=40%}
+
+```{r}
+#| title: Título
+library(DT)
+datatable(iris, rownames = FALSE)
+```
+
+```{r}
+#| title: Título
+plot(mtcars)
+```

@@ -1,0 +1,2 @@
+- Quarto dashboard: https://quarto.org/docs/dashboards/
+- Temas dashboard: https://quarto.org/docs/dashboards/theming.html

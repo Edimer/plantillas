@@ -1,0 +1,27 @@
+---
+title: "Título"
+author: "Autor"
+format:
+   dashboard:
+     scrolling: true
+logo: logo.png
+theme: lux
+---
+
+
+```{r}
+#| title: Prueba
+plot(iris)
+```
+
+
+```{r}
+#| title: Título
+library(DT)
+datatable(iris, rownames = FALSE)
+```
+
+```{r}
+#| title: Título
+plot(mtcars)
+```

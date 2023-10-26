@@ -1,0 +1,171 @@
+---
+title: "Título"
+author: "Autor"
+format: dashboard
+logo: logo.png
+theme: yeti
+---
+
+# {.sidebar}
+
+```{r}
+library(tidyverse)
+library(plotly)
+ggplotly(
+  iris %>% 
+    ggplot(aes(x = Sepal.Length)) +
+    geom_histogram(color = "black")
+)
+```
+
+![](logo.png){width=350}
+
+Zootecnista y especialista en Estadística, con capacidad de utilizar métodos estadísticos en favor de resolver problemas específicos en múltiples áreas del conocimiento.
+Experiencia en docencia universitaria, formulación de proyectos de investigación y consultoría estadística, ejerciendo funciones de análisis de datos a través de lenguajes de programación como *R* y *Python*. Participante en competencias de *Data Science* a través de plataformas como [Kaggle](https://www.kaggle.com/), [Zindi (África)](https://zindi.africa/) y [DataSource (Latinoamérica)](https://www.datasource.ai/). 
+
+# Página 1 {orientation="rows"}
+
+## Fila 1 {height=55%}
+
+```{r}
+#| title: Prueba
+plot(iris)
+```
+
+Se puede agregar texto como un componente adicional del tablero...Simplemente se debe agregar el texto como este 😄🐶📊
+
+Zootecnista y especialista en Estadística, con capacidad de utilizar métodos estadísticos en favor de resolver problemas específicos en múltiples áreas del conocimiento.
+Experiencia en docencia universitaria, formulación de proyectos de investigación y consultoría estadística, ejerciendo funciones de análisis de datos a través de lenguajes de programación como *R* y *Python*. Participante en competencias de *Data Science* a través de plataformas como [Kaggle](https://www.kaggle.com/), [Zindi (África)](https://zindi.africa/) y [DataSource (Latinoamérica)](https://www.datasource.ai/). 
+
+## Fila 2 {height=45%}
+
+```{r}
+#| title: Tabla gt
+gt::gt(iris)
+```
+
+
+# Página 2 {orientation="columns"}
+
+## Columna 1 {.tabset width=60%}
+
+```{r}
+#| title: Botón 1
+library(DT)
+datatable(iris, rownames = FALSE)
+```
+
+```{r}
+#| title: Botón 2
+plot(mtcars)
+```
+
+## Columna 2 {width=40%}
+
+```{r}
+#| title: Leaflet
+library(leaflet)
+leaflet() %>%
+  addTiles() %>%
+  addMarkers(lat = 3.52903,
+             lng = -76.41379,
+             popup = "Estadio del Deportivo Cali")
+```
+
+# Cards
+
+::: {.card title="Mi avatar"}
+![](logo.png){width=350}
+
+Zootecnista y especialista en Estadística, con capacidad de utilizar métodos estadísticos en favor de resolver problemas específicos en múltiples áreas del conocimiento.
+Experiencia en docencia universitaria, formulación de proyectos de investigación y consultoría estadística, ejerciendo funciones de análisis de datos a través de lenguajes de programación como *R* y *Python*. Participante en competencias de *Data Science* a través de plataformas como [Kaggle](https://www.kaggle.com/), [Zindi (África)](https://zindi.africa/) y [DataSource (Latinoamérica)](https://www.datasource.ai/). 
+
+:::
+
+# Value Boxes {orientation="rows"}
+
+## Fila 1
+
+```{r}
+#| component: valuebox
+#| title: "Articles per day"
+#| icon: pencil
+#| color: primary
+200
+```
+
+```{r}
+#| component: valuebox
+#| title: "Spam per day"
+list(
+  icon = "trash",
+  color = "secondary",
+  value = 500
+)
+```
+
+```{r}
+#| component: valuebox
+#| title: "Spam per day"
+list(
+  icon = "trash",
+  color = "success",
+  value = 300
+)
+```
+
+## Fila 2 {height=50%}
+
+```{r}
+#| component: valuebox
+#| title: "Articles per day"
+#| icon: pencil
+#| color: info
+200
+```
+
+```{r}
+#| component: valuebox
+#| title: "Spam per day"
+list(
+  icon = "trash",
+  color = "warning",
+  value = 500
+)
+```
+
+```{r}
+#| component: valuebox
+#| title: "Spam per day"
+list(
+  icon = "trash",
+  color = "danger",
+  value = 300
+)
+```
+
+## Fila 3
+
+```{r}
+#| component: valuebox
+#| title: "Articles per day"
+#| icon: pencil
+#| color: light
+200
+```
+
+```{r}
+#| component: valuebox
+#| title: "Spam per day"
+list(
+  icon = "trash",
+  color = "dark",
+  value = 500
+)
+```
+
+::: {.valuebox icon="pencil" color="green"}
+Color personalizado
+
+`{r} 200`
+:::

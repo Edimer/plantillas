@@ -1,0 +1,47 @@
+---
+title: "Título"
+author: "Autor"
+format: dashboard
+logo: logo.png
+theme: sketchy
+---
+
+# Página 1 {orientation="rows"}
+
+## Fila 1 {height=70%}
+
+```{r}
+#| title: Prueba
+plot(iris)
+```
+
+## Fila 2 {height=30%}
+
+```{r}
+#| title: Tabla gt
+gt::gt(iris)
+```
+
+
+# Página 2 {orientation="columns"}
+
+## Columna 1 {.tabset}
+
+```{r}
+#| title: Botón 1
+library(DT)
+datatable(iris, rownames = FALSE)
+```
+
+```{r}
+#| title: Botón 2
+plot(mtcars)
+```
+
+## Columna 2
+
+```{r}
+#| title: Título
+plot(Titanic)
+```
+

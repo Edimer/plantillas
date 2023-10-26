@@ -1,0 +1,37 @@
+---
+title: "Título"
+author: "Autor"
+format: dashboard
+logo: logo.png
+theme: quartz
+---
+
+# Página 1
+
+```{r}
+#| title: Prueba
+plot(iris)
+```
+
+# Página 2 {orientation="columns"}
+
+## Columna 1
+
+```{r}
+#| title: Título
+library(DT)
+datatable(iris, rownames = FALSE)
+```
+
+```{r}
+#| title: Título
+plot(mtcars)
+```
+
+## Columna 2
+
+```{r}
+#| title: Título
+plot(Titanic)
+```
+

@@ -1,0 +1,27 @@
+---
+title: "Título"
+author: "Autor"
+format: dashboard
+logo: logo.png
+theme: flatly
+---
+
+## Row {height=60%}
+
+```{r}
+#| title: Prueba
+plot(iris)
+```
+
+## Row {height=40%}
+
+```{r}
+#| title: Título
+library(DT)
+datatable(iris, rownames = FALSE)
+```
+
+```{r}
+#| title: Título
+plot(mtcars)
+```
